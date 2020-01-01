@@ -1,8 +1,8 @@
 # webgl-jsonloader
 
 > Three.js model loader for **.obj** (JSON) files.  
-> - Backup of original 2012 **jsonloader_v.1.0.1.zip** project files.  
-> - Warning: Not compatible with 2019 WebGL standards
+> - Backup of the original 2012 **jsonloader_v.1.0.1.zip** project files.  
+> - Warning: Not compatible with modern WebGL standards as of 2019 (?)
 
 ### 20120130 Change Logs
 - adapted from three.js json loader sample (webgl_loader_json_blender.html)
