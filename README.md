@@ -10,5 +10,31 @@
 - models from mu online
 - notes: obj-converter (convert\_obj\_three.py) and blender plugin are also ok
 
+
+### Prerequisites
+
+1. NodeJS
+	- node version 10.16.3
+	- npm version 6.9.0
+2. Windows OS 64 bit
+3. Web browser
+	- Chrome
+
+
+## Usage
+
+1. Clone this repository.  
+`https://github.com/muonlineph/webgl-jsonloader.git`
+
+2. Install dependencies.  
+`npm install`
+
+3. Run the local web server.  
+`npm run start`
+
+4. Load the webgl json loader from  
+`http://localhost:3000`
+
+
 @weaponsforge  
 20200101
