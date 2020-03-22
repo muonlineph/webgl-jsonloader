@@ -24,10 +24,12 @@ const init = function() {
   renderer = new THREE.WebGLRenderer()
   renderer.setPixelRatio(window.devicePixelRatio)
   renderer.setSize(window.innerWidth, window.innerHeight)
+  renderer.setClearColor (0xE0E0E0, 1);
   document.body.appendChild(renderer.domElement)
 
   // Events
   document.addEventListener('mousemove', onDocumentMouseMove, false)
+  window.addEventListener( 'resize', onWindowResize, false )
 }
 
 // Render the current frame
@@ -49,6 +51,16 @@ const animate = function() {
 const onDocumentMouseMove = function(event) {
   mouseX = (event.clientX - windowHalfX) / 2
   mouseY = (event.clientY - windowHalfY) / 2
+}
+
+const onWindowResize = function() {
+  windowHalfX = window.innerWidth / 2
+  windowHalfY = window.innerHeight / 2
+
+  camera.aspect = window.innerWidth / window.innerHeight
+  camera.updateProjectionMatrix()
+
+  renderer.setSize(window.innerWidth, window.innerHeight)
 }
 
 const app = async function() {
