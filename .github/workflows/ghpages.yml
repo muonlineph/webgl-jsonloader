@@ -1,0 +1,20 @@
+name: Deploy to Github Pages
+
+on:
+  push:
+    branches: 
+      - ghpages-cd
+
+jobs:
+  deploy:
+    name: Deploy to GH Pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@master
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v2.5.0
+        env:
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: public
