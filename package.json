@@ -1,0 +1,27 @@
+{
+  "name": "webgl-jsonloader",
+  "version": "1.0.0",
+  "description": "A webgl json (object model) loader.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muonlineph/webgl-jsonloader.git"
+  },
+  "keywords": [
+    "webgl",
+    "json"
+  ],
+  "author": "weaponsforge",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muonlineph/webgl-jsonloader/issues"
+  },
+  "homepage": "https://github.com/muonlineph/webgl-jsonloader#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
