@@ -1,30 +1,21 @@
 #
-# ku.mtl
+# platina-OBJ.mtl
 #
 
-newmtl kundunStic_R.jpg
+newmtl bubsa.jpg
 illum 2
 Kd 0.800000 0.800000 0.800000
 Ka 0.200000 0.200000 0.200000
 Ks 0.000000 0.000000 0.000000
 Ke 0.000000 0.000000 0.000000
 Ns 0.000000
-map_Kd kundunStic_R.jpg
+map_Kd bubsa.jpg
 
-newmtl kundunStic.jpg
+newmtl blast_r.jpg
 illum 2
 Kd 0.800000 0.800000 0.800000
 Ka 0.200000 0.200000 0.200000
 Ks 0.000000 0.000000 0.000000
 Ke 0.000000 0.000000 0.000000
 Ns 0.000000
-map_Kd kundunStic.jpg
-
-newmtl kundunStic2.jpg
-illum 2
-Kd 0.800000 0.800000 0.800000
-Ka 0.200000 0.200000 0.200000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ns 0.000000
-map_Kd kundunStic2.jpg
+map_Kd blast_r.jpg

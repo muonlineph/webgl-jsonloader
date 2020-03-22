@@ -1,3 +1,7 @@
+/**
+ * Simple and basic usage of the Three.js OBJ loader
+ */
+
 let scene, camera, renderer = null
 let mouseX = 0, mouseY = 0;
 let windowHalfX = window.innerWidth / 2
