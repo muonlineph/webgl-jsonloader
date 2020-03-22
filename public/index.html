@@ -20,19 +20,58 @@
 			width: 100%;
 			text-align: center;
 			z-index: 100;
-			display:block;
+			display: block;
 		}
+		
     canvas { display: block; pointer-events:none; }
+
+		.selection {
+			display: block;
+		}
   </style>
   <script src="js/three.min.js" type="text/javascript"></script>
   <script src="js/DDSLoader.js" type="text/javascript"></script>
   <script src="js/MTLLoader.js" type="text/javascript"></script>
   <script src="js/OBJLoader.js" type="text/javascript"></script>
-  <script src="loader.js" type="text/javascript"></script>
-  <script src="main.js" type="text/javascript"></script>
+	<script src="loader.js" type="text/javascript"></script>
+	<script src="viewer.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var viewer = null
+		var weapons = {}
+
+		async function app() {
+			// load object models
+			await Promise.all([
+				loadModel('objects/staffofkundun/', 'kundun-OBJ.mtl', 'kundun-OBJ.obj', {
+					rotation: { x:-Math.PI/2, y:-Math.PI/3*2, z:-Math.PI/2 }
+				}),
+				loadModel('objects/boneblade/', 'BoneBlade-OBJ.mtl', 'BoneBlade-OBJ.obj'),
+				loadModel('objects/platina/', 'platina-OBJ.mtl', 'platina-OBJ.obj')
+			]).then(response => {
+				weapons.staff = response[0]
+				weapons.sword = response[1]
+				weapons.platina = response[2]
+				viewer = new Viewer([weapons.staff])
+			})
+		}
+
+		// change selected object model
+		function change(choice) {
+			Object.keys(weapons).filter(item => item !== choice).forEach(remove => {
+				viewer.removeModel(weapons[remove])
+			})
+			viewer.addModel(weapons[choice])
+		}
+	</script>
 </head>
 <body onload="app()">
-	<!-- 3d object model will be rendered here -->
-	<h1 class="info">Staff of Kundun</h1>
+	<div class="info">
+		<h1>Weapons</h1>
+		<input type="radio" id="staff" name="weapon" value="staff" checked onclick="change('staff')" /> Staff of Kundun
+		<input type="radio" id="boneblade" name="weapon" value="Boneblade" onclick="change('sword')"/> Boneblade
+		<input type="radio" id="boneblade" name="weapon" value="platina" onclick="change('platina')"/> Platina Staff
+	</div>
+	
+	<!-- 3d object models will be rendered here -->
 </body>
 </html>
