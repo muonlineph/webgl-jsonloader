@@ -3,6 +3,7 @@
 > Three.js model loader for 3d object (**.obj**) files.  
 
 
+
 ### Prerequisites
 
 1. NodeJS
@@ -13,6 +14,11 @@
 	- Chrome version 80.0.3987.149 (Official Build) (64-bit)
 4. Three.js
 	- version r114
+
+
+### Demo
+
+[https://muonlineph.github.io/webgl-jsonloader/](https://muonlineph.github.io/webgl-jsonloader/)
 
 
 ## Installation
@@ -49,4 +55,4 @@
 
 
 @weaponsforge  
-20200101
+20200320
