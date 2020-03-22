@@ -1,14 +1,6 @@
 # webgl-jsonloader
 
-> Three.js model loader for **.obj** (JSON) files.  
-> - Backup of the original 2012 **jsonloader_v.1.0.1.zip** project files.  
-> - Warning: Not compatible with modern WebGL standards as of 2019 (?)
-
-### 20120130 Change Logs
-- adapted from three.js json loader sample (webgl_loader_json_blender.html)
-- used three.js max exporter (2011); input:obj, output:js
-- models from mu online
-- notes: obj-converter (convert\_obj\_three.py) and blender plugin are also ok
+> Three.js model loader for 3d object (**.obj**) files.  
 
 
 ### Prerequisites
@@ -18,10 +10,12 @@
 	- npm version 6.9.0
 2. Windows OS 64 bit
 3. Web browser
-	- Chrome
+	- Chrome version 80.0.3987.149 (Official Build) (64-bit)
+4. Three.js
+	- version r114
 
 
-## Usage
+## Installation
 
 1. Clone this repository.  
 `https://github.com/muonlineph/webgl-jsonloader.git`
@@ -34,6 +28,24 @@
 
 4. Load the webgl json loader from  
 `http://localhost:3000`
+
+
+
+## Usage
+
+1. Initialize a ThreeJS scene, camera and renderer. See `public/main.js` **init()** for more information.
+2. Load ojbect model file(s) (.obj) and add to the ThreeJS scene.  
+
+		let staff = await loadModel('objects/staffofkundun/', 'kundun-OBJ.mtl', 'kundun-OBJ.obj', {
+		  position: { y:10 },
+		  rotation: { x:-Math.PI/2, y:-Math.PI/3*2, z:-Math.PI/2 }
+		})
+
+		scene.add(staff)
+
+	- see `public/loader.js` for more loading options
+	- any number of object files can be loaded and added to the `scene`.
+
 
 
 @weaponsforge  
