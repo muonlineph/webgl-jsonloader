@@ -46,11 +46,13 @@
 					rotation: { x:-Math.PI/2, y:-Math.PI/3*2, z:-Math.PI/2 }
 				}),
 				loadModel('objects/boneblade/', 'BoneBlade-OBJ.mtl', 'BoneBlade-OBJ.obj'),
-				loadModel('objects/platina/', 'platina-OBJ.mtl', 'platina-OBJ.obj')
+				loadModel('objects/platina/', 'platina-OBJ.mtl', 'platina-OBJ.obj'),
+				loadModel('objects/blade_of_explosion/', 'boe-OBJ.mtl', 'boe-OBJ.obj')
 			]).then(response => {
 				weapons.staff = response[0]
 				weapons.sword = response[1]
 				weapons.platina = response[2]
+				weapons.boe = response[3]
 				viewer = new Viewer([weapons.staff])
 			})
 		}
@@ -70,6 +72,7 @@
 		<input type="radio" id="staff" name="weapon" value="staff" checked onclick="change('staff')" /> Staff of Kundun
 		<input type="radio" id="boneblade" name="weapon" value="Boneblade" onclick="change('sword')"/> Boneblade
 		<input type="radio" id="boneblade" name="weapon" value="platina" onclick="change('platina')"/> Platina Staff
+		<input type="radio" id="boe" name="weapon" value="boe" onclick="change('boe')"/> Blade of Explosion
 	</div>
 	
 	<!-- 3d object models will be rendered here -->
