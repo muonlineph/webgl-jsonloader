@@ -48,12 +48,12 @@
 > This is the recommended usage for rendering object models as all Three.js scenes are already set-up in the **Viewer** object.
 
 1. Include the required Three.js files in your website (from the **/public/js** directory):  
-`three.min.js`, `DDSLoader.js`, `MTLLoader.js`, `OBJLoader.js`.
+`three.min.js`, `DDSLoader.js`, `MTLLoader.js`, `TGALoader.js`, `OBJLoader.js`.
 
 2. Include the custom loader and model viewer (from the **/public** directory):  
 `loader.js`, `viewer.js`
 
-3. Load your object model(s) using **async-await**, but do not add them to the scene. See [**Object Loader (Basic Usage)**, #2]() for more information.
+3. Load your object model(s) using **async-await**, but do not add them to the **scene**. See [**Object Loader (Basic Usage)**, #4]() for more usage information.
 
 		let a = await loadModel(...)
 		let b = await loadModel(...)
