@@ -22,6 +22,11 @@
 			z-index: 100;
 			display: block;
 		}
+
+		#attribution {
+			font-size: 10px;
+			margin-top: 8px;
+		}
 		
     canvas { display: block; pointer-events:none; }
 
@@ -39,6 +44,7 @@
 	<script type="text/javascript">
 		var viewer = null
 		var weapons = {}
+		var attribution = {}
 
 		async function app() {
 			// load object models
@@ -48,14 +54,32 @@
 				}),
 				loadModel('objects/boneblade/', 'BoneBlade-OBJ.mtl', 'BoneBlade-OBJ.obj'),
 				loadModel('objects/platina/', 'platina-OBJ.mtl', 'platina-OBJ.obj'),
-				loadModel('objects/blade_of_explosion/', 'boe-OBJ.mtl', 'boe-OBJ.obj')
+				loadModel('objects/blade_of_explosion/', 'boe-OBJ.mtl', 'boe-OBJ.obj'),
+				loadModel('objects/wolfsgravestone/', 'wolfsgravestone.mtl', 'wolfsgravestone.obj')
 			]).then(response => {
 				weapons.staff = response[0]
 				weapons.sword = response[1]
 				weapons.platina = response[2]
 				weapons.boe = response[3]
-				viewer = new Viewer([weapons.staff])
+				weapons.wgs = response[4]
 			})
+
+			// Set 3d model attribution
+			Object.keys(weapons).forEach((item) => {
+				attribution[item] = ''
+				switch (item) {
+					case 'wgs':
+						attribution.wgs = '"Genshin Impact Wolf\'s Gravestone" (https://skfb.ly/6ZvA8) by Le Ryan is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).'
+						break
+					default:
+						attribution[item] = 'Converted to .obj from mu online client .bmd weapon file'
+						break
+				}
+			})
+
+			// Initialize content
+			viewer = new Viewer([weapons.staff])
+			document.getElementById('attribution').textContent = attribution.staff
 		}
 
 		// change selected object model
@@ -64,6 +88,7 @@
 				viewer.removeModel(weapons[remove])
 			})
 			viewer.addModel(weapons[choice])
+			document.getElementById('attribution').textContent = attribution[choice]
 		}
 	</script>
 </head>
@@ -74,6 +99,11 @@
 		<input type="radio" id="boneblade" name="weapon" value="Boneblade" onclick="change('sword')"/> Boneblade
 		<input type="radio" id="boneblade" name="weapon" value="platina" onclick="change('platina')"/> Platina Staff
 		<input type="radio" id="boe" name="weapon" value="boe" onclick="change('boe')"/> Blade of Explosion
+		<input type="radio" id="wgs" name="weapon" value="wgs" onclick="change('wgs')"/> Wolf's Gravestone
+
+		<!-- Attribution/credits -->
+		<div id="attribution">
+		</div>
 	</div>
 	
 	<!-- 3d object models will be rendered here -->
