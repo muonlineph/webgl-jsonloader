@@ -73,11 +73,12 @@
 
 3. Initialize a ThreeJS scene, camera and renderer. See `public/simple.js` **init()** for more information.
 
-4. Load ojbect model file(s) (.obj) and add to the ThreeJS scene.  
+4. Load ojbect model file(s) (.obj) and add to the ThreeJS scene with optional values for `position`, `rotation` and `scale`.  
 
 		let staff = await loadModel('objects/staffofkundun/', 'kundun-OBJ.mtl', 'kundun-OBJ.obj', {
 		  position: { y:10 },
-		  rotation: { x:-Math.PI/2, y:-Math.PI/3*2, z:-Math.PI/2 }
+		  rotation: { x:-Math.PI/2, y:-Math.PI/3*2, z:-Math.PI/2 },
+			scale: { x:2, y:2, z:2 }
 		})
 
 		scene.add(staff)
