@@ -55,13 +55,25 @@
 				loadModel('objects/boneblade/', 'BoneBlade-OBJ.mtl', 'BoneBlade-OBJ.obj'),
 				loadModel('objects/platina/', 'platina-OBJ.mtl', 'platina-OBJ.obj'),
 				loadModel('objects/blade_of_explosion/', 'boe-OBJ.mtl', 'boe-OBJ.obj'),
-				loadModel('objects/wolfsgravestone/', 'wolfsgravestone.mtl', 'wolfsgravestone.obj')
+				loadModel('objects/gunblade-lowres/', 'gunblade.mtl', 'gunblade.obj', {
+					scale: { x: 3, y: 3, z: 3 }
+				}),
+				loadModel('objects/wolfsgravestone/', 'wolfsgravestone.mtl', 'wolfsgravestone.obj'),
+				loadModel('objects/mistsplitter/', 'mistsplitter.mtl', 'mistsplitter.obj', {
+					scale: { x: 2, y: 2, z: 2 }
+				}),
+				loadModel('objects/raidensword/', 'raidensword.mtl', 'raidensword.obj', {
+					scale: { x: 8, y: 8, z: 8 }
+				})
 			]).then(response => {
 				weapons.staff = response[0]
 				weapons.sword = response[1]
 				weapons.platina = response[2]
 				weapons.boe = response[3]
-				weapons.wgs = response[4]
+				weapons.gb = response[4]
+				weapons.wgs = response[5]
+				weapons.mist = response[6]
+				weapons.rsword = response[7]
 			})
 
 			// Set 3d model attribution
@@ -70,6 +82,15 @@
 				switch (item) {
 					case 'wgs':
 						attribution.wgs = '"Genshin Impact Wolf\'s Gravestone" (https://skfb.ly/6ZvA8) by Le Ryan is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).'
+						break
+					case 'gb':
+						attribution.gb = '"Gunblade from FFVIII" (https://skfb.ly/6YZp8) by nikexz is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).'
+						break
+					case 'mist':
+						attribution.mist = 'by Ilham45 on renderhub https://www.renderhub.com/ilham45/mistsplitter-reforged-sword-genshin-impact'
+						break
+					case 'rsword':
+						attribution.rsword = '"Raiden Shogun" (https://skfb.ly/o7yF6) by hucancode is licensed under Creative Commons Attribution-NonCommercial (http://creativecommons.org/licenses/by-nc/4.0/).'
 						break
 					default:
 						attribution[item] = 'Converted to .obj from mu online client .bmd weapon file'
@@ -99,7 +120,10 @@
 		<input type="radio" id="boneblade" name="weapon" value="Boneblade" onclick="change('sword')"/> Boneblade
 		<input type="radio" id="boneblade" name="weapon" value="platina" onclick="change('platina')"/> Platina Staff
 		<input type="radio" id="boe" name="weapon" value="boe" onclick="change('boe')"/> Blade of Explosion
+		<input type="radio" id="gb" name="weapon" value="gb" onclick="change('gb')"/> Gunblade
 		<input type="radio" id="wgs" name="weapon" value="wgs" onclick="change('wgs')"/> Wolf's Gravestone
+		<input type="radio" id="mist" name="weapon" value="mist" onclick="change('mist')"/> Mistsplitter Reforged
+		<input type="radio" id="rsword" name="weapon" value="rsword" onclick="change('rsword')"/> Raiden's Sword
 
 		<!-- Attribution/credits -->
 		<div id="attribution">

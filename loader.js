@@ -51,7 +51,13 @@ async function loadModel(directory, mtlFile, objFile, offset, usesTga = false) {
               Object.keys(offset.rotation).forEach(item => {
                 object.rotation[item] = offset.rotation[item]
               })
-            }                  
+            }
+
+            if (offset.scale) {
+              Object.keys(offset.scale).forEach(item => {
+                object.scale[item] = offset.scale[item]
+              })
+            }
           }
       
           console.log('object loaded!')
