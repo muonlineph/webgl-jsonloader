@@ -58,7 +58,9 @@
 				loadModel('objects/gunblade-lowres/', 'gunblade.mtl', 'gunblade.obj', {
 					scale: { x: 3, y: 3, z: 3 }
 				}),
-				loadModel('objects/wolfsgravestone/', 'wolfsgravestone.mtl', 'wolfsgravestone.obj'),
+				loadModel('objects/wolfsgravestone/', 'wolfsgravestone.mtl', 'wolfsgravestone.obj', {
+					scale: { x: 128, y: 128, z: 128 }
+				}),
 				loadModel('objects/mistsplitter/', 'mistsplitter.mtl', 'mistsplitter.obj', {
 					scale: { x: 2, y: 2, z: 2 }
 				}),
@@ -81,7 +83,7 @@
 				attribution[item] = ''
 				switch (item) {
 					case 'wgs':
-						attribution.wgs = '"Genshin Impact Wolf\'s Gravestone" (https://skfb.ly/6ZvA8) by Le Ryan is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).'
+						attribution.wgs = '"Genshin Impact Wolf\'s Gravestone" 3D model rip by Ailephi.'
 						break
 					case 'gb':
 						attribution.gb = '"Gunblade from FFVIII" (https://skfb.ly/6YZp8) by nikexz is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).'
