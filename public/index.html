@@ -99,10 +99,13 @@
 					scale: { x: 128, y: 128, z: 128 }
 				}),
 				loadModel('objects/mistsplitter/', 'mistsplitter.mtl', 'mistsplitter.obj', {
-					scale: { x: 2, y: 2, z: 2 }
+					scale: { x: 14, y: 14, z: 14 }
 				}),
 				loadModel('objects/raidensword/', 'raidensword.mtl', 'raidensword.obj', {
-					scale: { x: 8, y: 8, z: 8 }
+					scale: { x: 14, y: 14, z: 14 }
+				}),
+				loadModel('objects/narukami/', 'narukami.mtl', 'narukami.obj', {
+					scale: { x: 14, y: 14, z: 14 }
 				})
 			]).then(response => {
 				weapons.staff = response[0]
@@ -113,6 +116,7 @@
 				weapons.wgs = response[5]
 				weapons.mist = response[6]
 				weapons.rsword = response[7]
+				weapons.narukami = response[8]
 				document.querySelector('.spinner').style.display = 'none'
 			})
 
@@ -127,10 +131,13 @@
 						attribution.gb = '"Gunblade from FFVIII" (https://skfb.ly/6YZp8) by nikexz is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).'
 						break
 					case 'mist':
-						attribution.mist = 'by Ilham45 on renderhub https://www.renderhub.com/ilham45/mistsplitter-reforged-sword-genshin-impact'
+						attribution.mist = '"10 Genshin Impact Inspired Sword 3D Models" (https://skfb.ly/o8qCJ) by Anime 3D is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).'
 						break
 					case 'rsword':
-						attribution.rsword = '"Raiden Shogun" (https://skfb.ly/o7yF6) by hucancode is licensed under Creative Commons Attribution-NonCommercial (http://creativecommons.org/licenses/by-nc/4.0/).'
+						attribution.rsword = '"10 Genshin Impact Inspired Sword 3D Models" (https://skfb.ly/o8qCJ) by Anime 3D is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).'
+						break
+					case 'narukami':
+						attribution.narukami = '"10 Genshin Impact Inspired Sword 3D Models" (https://skfb.ly/o8qCJ) by Anime 3D is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).'
 						break
 					default:
 						attribution[item] = 'Converted to .obj from mu online client .bmd weapon file'
@@ -164,6 +171,7 @@
 		<input type="radio" id="wgs" name="weapon" value="wgs" onclick="change('wgs')"/> Wolf's Gravestone
 		<input type="radio" id="mist" name="weapon" value="mist" onclick="change('mist')"/> Mistsplitter Reforged
 		<input type="radio" id="rsword" name="weapon" value="rsword" onclick="change('rsword')"/> Raiden's Sword
+		<input type="radio" id="narukami" name="weapon" value="narukami" onclick="change('narukami')"/> Narukami Sword
 
 		<!-- Attribution/credits -->
 		<div id="attribution"></div>
