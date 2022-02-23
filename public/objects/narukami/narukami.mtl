@@ -1,12 +1,12 @@
 #
-# mistsplitter.mtl
+# narukami.mtl
 #
 
-newmtl Mistsplitter_Reforged
+newmtl Narukami
 illum 2
 Kd 0.800000 0.800000 0.800000
 Ka 1.000000 1.000000 1.000000
 Ks 0.500000 0.500000 0.500000
 Ke 0.000000 0.000000 0.000000
 Ns 1.450000
-map_Kd Mistsplitter_Reforged_baseColor.png
+map_Kd Narukami_baseColor.png
