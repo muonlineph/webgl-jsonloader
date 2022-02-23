@@ -33,6 +33,43 @@
 		.selection {
 			display: block;
 		}
+
+		.spinner {
+			display: inline-block;
+			position: relative;
+			width: 80px;
+			height: 80px;
+		}
+		.spinner div {
+			display: inline-block;
+			position: absolute;
+			left: 8px;
+			width: 16px;
+			background: #dfc;
+			animation: spinner 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+		}
+		.spinner div:nth-child(1) {
+			left: 8px;
+			animation-delay: -0.24s;
+		}
+		.spinner div:nth-child(2) {
+			left: 32px;
+			animation-delay: -0.12s;
+		}
+		.spinner div:nth-child(3) {
+			left: 56px;
+			animation-delay: 0;
+		}
+		@keyframes spinner {
+			0% {
+				top: 8px;
+				height: 64px;
+			}
+			50%, 100% {
+				top: 24px;
+				height: 32px;
+			}
+		}
   </style>
   <script src="js/three.min.js" type="text/javascript"></script>
 	<script src="js/DDSLoader.js" type="text/javascript"></script>
@@ -76,6 +113,7 @@
 				weapons.wgs = response[5]
 				weapons.mist = response[6]
 				weapons.rsword = response[7]
+				document.querySelector('.spinner').style.display = 'none'
 			})
 
 			// Set 3d model attribution
@@ -128,7 +166,10 @@
 		<input type="radio" id="rsword" name="weapon" value="rsword" onclick="change('rsword')"/> Raiden's Sword
 
 		<!-- Attribution/credits -->
-		<div id="attribution">
+		<div id="attribution"></div>
+
+		<div class="spinner">
+			<div></div><div></div><div></div>
 		</div>
 	</div>
 	
