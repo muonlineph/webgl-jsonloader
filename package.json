@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/muonlineph/webgl-jsonloader#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   }
 }
