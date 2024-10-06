@@ -13,9 +13,10 @@ function Viewer(models) {
   this.windowHalfX = window.innerWidth / 2
   this.windowHalfY = window.innerHeight / 2
   this.models = []
+  this.animationFrameId = null
 
   this.init()
-  
+
   // Add models to scene
   if (models) {
     models.forEach(item => {
@@ -36,7 +37,7 @@ Viewer.prototype.init = function() {
   // Camera
   this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
   this.camera.position.z = 200
-  
+
   // Scene
   this.scene = new THREE.Scene()
   const ambientLight = new THREE.AmbientLight(0xcccccc, 0.4)
@@ -58,6 +59,9 @@ Viewer.prototype.init = function() {
   // DOM Events
   this.onDocumentMouseMove = this.onDocumentMouseMove.bind(this)
   this.onWindowResize = this.onWindowResize.bind(this)
+  this.onDocumentClick = this.onClick.bind(this)
+
+  document.addEventListener('click', this.onDocumentClick, false)
   document.addEventListener('mousemove', this.onDocumentMouseMove, false)
   window.addEventListener( 'resize', this.onWindowResize, false)
 
@@ -78,17 +82,24 @@ Viewer.prototype.render = function() {
 
 // Continously render and update the frames
 Viewer.prototype.animate = function() {
-  requestAnimationFrame(this.animate)
+  this.animationFrameId = requestAnimationFrame(this.animate)
 
   // Rotate the model(s)
   this.models.forEach(item => {
     item.rotation.x += 0.01
-    item.rotation.y += 0.01  
+    item.rotation.y += 0.01
   })
 
   this.render()
 }
 
+// Stop the animation, cancelling the requestAnimationFrame ID
+Viewer.prototype.stopAnimation = function() {
+  if (this.animationFrameId) {
+    cancelAnimationFrame(this.animationFrameId)
+    this.animationFrameId = null
+  }
+}
 
 /**
  * Update the mouse pointer position as it moves.
@@ -111,6 +122,19 @@ Viewer.prototype.onWindowResize = function() {
   this.renderer.setSize(window.innerWidth, window.innerHeight)
 }
 
+// Process page click event - stop or restart the animation
+Viewer.prototype.onClick = function(e) {
+  const { target } = e
+
+  // Skip processing radio button clicks
+  if (target?.tagName === 'INPUT' && target?.type === 'radio') return
+
+  if (this.animationFrameId) {
+    this.stopAnimation()
+  } else {
+    this.animate()
+  }
+}
 
 // Add a new object model to the scene
 Viewer.prototype.addModel = function(model) {
