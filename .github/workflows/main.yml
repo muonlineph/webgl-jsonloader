@@ -1,20 +1,24 @@
-name: Deploy to Github Pages
+name: Deploy to Production Environment
 
 on:
-  push:
-    branches: 
-      - master
+  release:
+    types: [published]
 
 jobs:
-  deploy:
-    name: Deploy to GH Pages
+  deploy-client:
+    name: Build and Deploy GitHub Pages
+    if: github.event.release.target_commitish == 'master'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@master
-      - name: Deploy
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.release.tag_name }}
+      - name: List files for publish
+        run: cd public && ls -l -a
+      - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: public
           publish_branch: gh-pages
