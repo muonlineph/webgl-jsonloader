@@ -126,8 +126,12 @@ Viewer.prototype.onWindowResize = function() {
 Viewer.prototype.onClick = function(e) {
   const { target } = e
 
-  // Skip processing radio button clicks
-  if (target?.tagName === 'INPUT' && target?.type === 'radio') return
+  // Skip processing radio button clicks if anim is running
+  if (
+    target?.tagName === 'INPUT' &&
+    target?.type === 'radio' &&
+    this.animationFrameId
+  ) return
 
   if (this.animationFrameId) {
     this.stopAnimation()
