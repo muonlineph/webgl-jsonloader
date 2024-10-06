@@ -2,7 +2,7 @@
 
 > Three.js model loader for 3d object (**.obj**) files.
 
-
+![screenshot](assets/screenshot2.png)
 
 ### Requirements
 
@@ -47,10 +47,10 @@ This project has no dependencies since it only contains static website files. Ot
 
 > This is the recommended usage for rendering object models as all Three.js scenes are already set-up in the **Viewer** object.
 
-1. Include the required Three.js files in your website (from the **/public/js** directory):
+1. Include the required Three.js files in your website (from the **/public/js** directory):<br>
 `three.min.js`, `DDSLoader.js`, `MTLLoader.js`, `TGALoader.js`, `OBJLoader.js`.
 
-2. Include the custom loader and model viewer (from the **/public** directory):
+2. Include the custom loader and model viewer (from the **/public** directory):<br>
 `loader.js`, `viewer.js`
 
 3. Load your object model(s) using **async-await**, but do not add them to the **scene**. See [**Object Loader (Basic Usage)**, #4]() for more usage information.
@@ -59,16 +59,16 @@ This project has no dependencies since it only contains static website files. Ot
 		let b = await loadModel(...)
 		let c = await loadModel(...)
 
-4. Initialize a new **Viewer** object with the loaded models from #1 as parameters.
+4. Initialize a new **Viewer** object with the loaded models from #1 as parameters.<br>
 `const viewer = new Viewer([a, b, c])`
 
 
 ### Object Loader (Basic Usage)
 
-1. Include the required Three.js files in your website (from the **/public/js** directory):
+1. Include the required Three.js files in your website (from the **/public/js** directory):<br>
 `three.min.js`, `DDSLoader.js`, `MTLLoader.js`, `OBJLoader.js`.
 
-2. Include the custom loader and model viewer (from the **/public** directory):
+2. Include the custom loader and model viewer (from the **/public** directory):<br>
 `loader.js`, `simple.js`
 
 3. Initialize a ThreeJS scene, camera and renderer. See `public/simple.js` **init()** for more information.
