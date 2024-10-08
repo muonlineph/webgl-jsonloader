@@ -1,6 +1,6 @@
 # webgl-jsonloader
 
-> Three.js model loader for 3d object (**.obj**) files.
+> Three.js model loader for 3D object (**.obj**) files.
 
 ![screenshot](assets/screenshot2.png)
 
@@ -29,7 +29,7 @@ This project has no dependencies since it only contains static website files. Ot
 `docker pull weaponsforge/livereload-basic:latest`
 
 3. Run the local web server. Navigate to the project root directory using a terminal, then run the local web server.<br>
-`docker run -it --rm -p 3000:3000 -v %cd%\public:/opt/app/public -e IS_DOCKER=true -e USE_POLLING=true weaponsforge/livereload-basic:latest`
+`docker run -it --rm -p 3000:3000 -v %cd%\public:/opt/app/public -e USE_POLLING=true weaponsforge/livereload-basic:latest`
 
 4. Load the webgl json loader from<br>
 `http://localhost:3000`
@@ -90,4 +90,4 @@ This project has no dependencies since it only contains static website files. Ot
 
 @weaponsforge<br>
 20200320<br>
-20241006
+20241008
